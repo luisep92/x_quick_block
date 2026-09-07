@@ -15,16 +15,44 @@ Por eso el content script se declara con `"world": "MAIN"`: necesita ejecutarse 
 
 ## Instalación
 
-1. Descarga o clona el repo:
-   ```bash
-   git clone git@github.com:luisep92/x_quick_block.git
-   ```
-2. Abre `chrome://extensions` en Chrome (o Edge/Brave con su URL equivalente).
-3. Activa **Modo de desarrollador** (arriba a la derecha).
-4. Pulsa **Cargar descomprimida** y selecciona la carpeta del repo.
-5. Recarga cualquier pestaña de `x.com` que tuvieras abierta.
+No hay que compilar nada: son dos ficheros planos. Chrome no permite instalar
+extensiones de fuera de la Chrome Web Store con doble clic, así que se carga
+como extensión descomprimida.
 
-No hay que compilar nada: son dos ficheros planos.
+### Desde el zip (recomendado)
+
+1. Ve a la [última release](https://github.com/luisep92/x_quick_block/releases/latest)
+   y descarga el zip.
+2. **Descomprímelo** en una carpeta donde vaya a quedarse (por ejemplo
+   `Documentos\x-quick-block`). No la borres ni la muevas después: Chrome carga
+   la extensión desde ahí cada vez que arranca.
+3. Abre `chrome://extensions` (en Edge `edge://extensions`, en Brave `brave://extensions`).
+4. Activa **Modo de desarrollador**, arriba a la derecha.
+5. Pulsa **Cargar descomprimida** y selecciona la carpeta **que contiene
+   `manifest.json`**. Si al descomprimir te ha quedado una carpeta dentro de otra,
+   elige la de dentro.
+6. Recarga cualquier pestaña de `x.com` que tuvieras abierta.
+
+Para comprobar que va: abre un tweet y mira la barra de acciones; debe salir un
+icono de prohibido junto al de guardar.
+
+### Desde el repo
+
+```bash
+git clone git@github.com:luisep92/x_quick_block.git
+```
+
+Y a partir del paso 3 de arriba, seleccionando la carpeta del repo.
+
+### Actualizar
+
+Descarga el zip nuevo, descomprime **encima** de la carpeta anterior
+sobrescribiendo los ficheros, y en `chrome://extensions` pulsa el icono de
+recargar (↻) de la tarjeta de la extensión.
+
+### Desinstalar
+
+En `chrome://extensions`, botón **Quitar** en la tarjeta de la extensión.
 
 ## Archivos
 
@@ -49,6 +77,9 @@ El manifest **no pide ningún permiso**. El script sólo corre en `x.com` y `twi
 - Depende de los `data-testid` del DOM de X (`tweet`, `User-Name`, `caret`, `block`, `bookmark`). Si X los renombra, el botón puede dejar de aparecer o el fallback dejar de funcionar.
 - No hay deshacer: el bloqueo es inmediato tras el segundo clic. Para desbloquear, hazlo desde el perfil o desde los ajustes de X.
 - Sólo probado en Chromium (Chrome/Edge/Brave). En Firefox el `"world": "MAIN"` de MV3 se comporta distinto.
+- Al cargarse en modo de desarrollador, Chrome muestra al arrancar el aviso
+  «Desactiva las extensiones en modo de desarrollador». Se puede cerrar; no
+  afecta al funcionamiento.
 
 ## Depuración
 
