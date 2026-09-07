@@ -17,5 +17,3 @@ Para actualizar, descomprime encima y pulsa ↻ en la tarjeta de la extensión.
 - No pide permisos ni envía nada a terceros. Todo está en [content.js](content.js); `ARM_MS` es la ventana para el segundo clic y `BEARER` el token público del cliente web, que rara vez cambia.
 - Depende de los `data-testid` del DOM de X, así que puede romperse cuando X toque su frontend. Los errores se loguean en consola con el prefijo `[X Quick Block]`.
 - No hay deshacer: para desbloquear, desde el perfil o los ajustes de X.
-
-MIT.
