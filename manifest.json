@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "X Quick Block",
+  "version": "1.0",
+  "description": "Botón de bloqueo directo en cada tweet. Doble clic para confirmar, sin el diálogo nativo.",
+  "content_scripts": [
+    {
+      "matches": ["https://x.com/*", "https://twitter.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle",
+      "world": "MAIN"
+    }
+  ]
+}
